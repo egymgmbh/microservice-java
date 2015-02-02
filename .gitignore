@@ -1,5 +1,14 @@
 .gradle
 build/
+target
+classes
+rebel.xml
+.idea
+*.iml
+*.swp
+.project
+.classpath
+.settings
 
 # Ignore Gradle GUI config
 gradle-app.setting
