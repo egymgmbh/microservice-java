@@ -1,59 +1,43 @@
 apply plugin: 'java'
-apply plugin: 'maven'
-apply plugin: 'idea'
 
 defaultTasks 'clean', 'build'
 
-ext{
-
-     jerseyVersion = '1.18.1'
-}
-
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.1'
+	gradleVersion = '2.2'
 }
-
 
 compileJava {
-    sourceCompatibility = 1.7
-    targetCompatibility = 1.7
+	sourceCompatibility = 1.7
+	targetCompatibility = 1.7
 }
-
 
 dependencies {
-    compile group: 'org.eclipse.jetty', name: 'jetty-server', version: '9.2.6.v20141205'
-    compile group: 'org.eclipse.jetty', name: 'jetty-servlet', version: '9.2.6.v20141205'
-    compile group: 'org.eclipse.jetty', name: 'jetty-http', version: '9.2.6.v20141205'
+	compile group: 'org.eclipse.jetty', name: 'jetty-server', version: '9.2.6.v20141205'
+	compile group: 'org.eclipse.jetty', name: 'jetty-servlet', version: '9.2.6.v20141205'
+	compile group: 'org.eclipse.jetty', name: 'jetty-http', version: '9.2.6.v20141205'
 
-    compile group: 'org.jsr107.ri', name: 'cache-annotations-ri-guice', version: '1.0.0'
-
-    compile group: 'com.sun.jersey.contribs', name: 'jersey-guice', version: "${jerseyVersion}"
-
-
+	compile group: 'com.google.inject', name: 'guice', version: '3.0'
+	compile group: 'com.google.inject.extensions', name: 'guice-servlet', version: '3.0'
 }
 
-
 repositories {
-
-    mavenCentral()
+	mavenCentral()
 }
 
 jar {
+	from files(sourceSets.main.output.classesDir)
+	from files(sourceSets.main.output.resourcesDir)
 
-    from files(sourceSets.main.output.classesDir)
-    from files(sourceSets.main.output.resourcesDir)
+	from configurations.runtime.asFileTree.files.collect {
+		zipTree(it)
+	}
 
-    from configurations.runtime.asFileTree.files.collect {
-        zipTree(it)
-    }
+	manifest {
+		attributes 'Main-Class': 'SampleMain'
+	}
 
-    manifest {
-        attributes 'Main-Class': 'Example'
-    }
-
-    // Files in the META-INF path with endings .RSA, .SF and .DSA must be excluded.
-    // Some JARs are signed (these files indicate a signature) and mixing them
-    // with unsigned JARs causes the signature to break which in turn throws a SecurityException.
-    exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA'
-
+	// Files in the META-INF path with endings .RSA, .SF and .DSA must be excluded.
+	// Some JARs are signed (these files indicate a signature) and mixing them
+	// with unsigned JARs causes the signature to break which in turn throws a SecurityException.
+	exclude 'META-INF/*.RSA', 'META-INF/*.SF', 'META-INF/*.DSA'
 }
