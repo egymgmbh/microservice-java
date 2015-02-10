@@ -3,7 +3,7 @@ apply plugin: 'java'
 defaultTasks 'clean', 'build'
 
 task wrapper(type: Wrapper) {
-	gradleVersion = '2.2'
+	gradleVersion = '2.1'
 }
 
 compileJava {
@@ -25,11 +25,17 @@ repositories {
 }
 
 jar {
-	from files(sourceSets.main.output.classesDir)
-	from files(sourceSets.main.output.resourcesDir)
 
-	from configurations.runtime.asFileTree.files.collect {
-		zipTree(it)
+
+	from {
+
+		// compile should suffice. Howver not all runtime dependencies
+		// are included in comile, whereas all compile dependencies
+		// are included in runtime.
+		// if necessary, add compile in the same manner as below.
+		configurations.runtime.collect {
+			zipTree(it)
+		}
 	}
 
 	manifest {
