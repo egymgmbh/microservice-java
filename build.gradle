@@ -29,11 +29,11 @@ jar {
 
 	from {
 
-		// compile should suffice. Howver not all runtime dependencies
-		// are included in comile, whereas all compile dependencies
+		// compile should suffice. However not all runtime dependencies
+		// are included in compile, whereas all compile dependencies
 		// are included in runtime.
-		// if necessary, add compile in the same manner as below.
-		configurations.runtime.collect {
+		// If necessary, add runtime in the same manner as below.
+		configurations.compile.collect {
 			zipTree(it)
 		}
 	}
