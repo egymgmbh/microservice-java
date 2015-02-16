@@ -1,4 +1,7 @@
 # microservice-template-java
+
+[![Build Status](https://travis-ci.org/egymgmbh/microservice-template-java.svg?branch=master)](https://travis-ci.org/egymgmbh/microservice-template-java)
+
 Minimal sample application for an executable web application using
 - [Guice 3.0](https://github.com/google/guice)
 - [Guice Servlet 3.0](https://github.com/google/guice/wiki/Servlets)
