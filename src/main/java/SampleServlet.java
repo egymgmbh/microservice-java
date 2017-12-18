@@ -16,8 +16,12 @@ class SampleServlet extends HttpServlet {
 		PrintWriter writer = response.getWriter();
 		writer.println("<html>");
 		writer.println("<body>");
-		writer.println("<h2>You have successfully embedded Jetty! Happy coding!</h2>");
+		writer.println("<h2>" + greeting()+ "</h2>");
 		writer.println("</body>");
 		writer.println("</html>");
+	}
+
+	public String greeting() {
+		return "Hello World!";
 	}
 }
