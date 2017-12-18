@@ -3,21 +3,21 @@ apply plugin: 'java'
 defaultTasks 'clean', 'build'
 
 task wrapper(type: Wrapper) {
-	gradleVersion = '2.1'
+	gradleVersion = '4.3'
 }
 
 compileJava {
-	sourceCompatibility = 1.7
-	targetCompatibility = 1.7
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
 }
 
 dependencies {
-	compile group: 'org.eclipse.jetty', name: 'jetty-server', version: '9.2.6.v20141205'
-	compile group: 'org.eclipse.jetty', name: 'jetty-servlet', version: '9.2.6.v20141205'
-	compile group: 'org.eclipse.jetty', name: 'jetty-http', version: '9.2.6.v20141205'
+	compile group: 'org.eclipse.jetty', name: 'jetty-server', version: '9.4.6.v20170531'
+	compile group: 'org.eclipse.jetty', name: 'jetty-servlet', version: '9.4.6.v20170531'
+	compile group: 'org.eclipse.jetty', name: 'jetty-http', version: '9.4.6.v20170531'
 
-	compile group: 'com.google.inject', name: 'guice', version: '3.0'
-	compile group: 'com.google.inject.extensions', name: 'guice-servlet', version: '3.0'
+	compile group: 'com.google.inject', name: 'guice', version: '4.1.0'
+	compile group: 'com.google.inject.extensions', name: 'guice-servlet', version: '4.1.0'
 }
 
 repositories {
