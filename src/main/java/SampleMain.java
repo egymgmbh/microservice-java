@@ -32,7 +32,5 @@ public class SampleMain {
 		// Start the server and wait for it.
 		server.start();
 		server.join();
-
-		// TODO How to stop this thing?!
 	}
 }
