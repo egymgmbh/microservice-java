@@ -85,7 +85,7 @@ jar {
 	exclude 'META-INF/*.RSA', 'META-INF/*.SF', 'META-INF/*.DSA'
 }
 
-defaultTasks 'clean', 'build', 'test'
+defaultTasks 'clean', 'build', 'junitPlatformTest'
 
 task wrapper(type: Wrapper) {
 	description = 'Generates gradlew[.bat] scripts'
