@@ -8,7 +8,10 @@ jobs:
     - stage: test
       script:
         - ./gradlew
-        - ./gradlew jacocoTestReport coveralls
+        - ./gradlew check
+        - ./gradlew codeCoverageReport
+      after_success:
+        - bash <(curl -s https://codecov.io/bash)
 
     - stage: build
       script: docker build -t test/app .
