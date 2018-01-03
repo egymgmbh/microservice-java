@@ -1,6 +1,14 @@
 language: java
 jdk:
-  - oraclejdk8
   - openjdk8
-after_success:
-  - ./gradlew jacocoTestReport coveralls
+services:
+  - docker
+jobs:
+  include:
+    - stage: test
+      script:
+        - ./gradlew
+        - ./gradlew jacocoTestReport coveralls
+
+    - stage: build
+      script: docker build -t test/app .
