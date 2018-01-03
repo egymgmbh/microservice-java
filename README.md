@@ -1,7 +1,7 @@
 # microservice-template-java
 
-[![Build Status](https://travis-ci.org/egymgmbh/microservice-template-java.svg?branch=master)](https://travis-ci.org/egymgmbh/microservice-template-java)
-[![Coverage Status](https://coveralls.io/repos/github/egymgmbh/microservice-template-java/badge.svg?branch=master)](https://coveralls.io/github/egymgmbh/microservice-template-java?branch=master)
+[![Build Status](https://travis-ci.org/egymgmbh/microservice-java.svg?branch=master)](https://travis-ci.org/egymgmbh/microservice-java)
+[![Coverage Status](https://coveralls.io/repos/github/egymgmbh/microservice-java/badge.svg?branch=master)](https://coveralls.io/github/egymgmbh/microservice-java?branch=master)
 
 Minimal sample application for an executable web application using
 - [Guice 4.1.0](https://github.com/google/guice)
@@ -13,7 +13,7 @@ Minimal sample application for an executable web application using
 
 ```bash
   ./gradlew
-  java -jar build/libs/microservice-template-java.jar
+  java -jar build/libs/microservice-java.jar
 ```
 
 ## Run
