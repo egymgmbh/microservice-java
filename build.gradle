@@ -22,15 +22,12 @@ ext.junitJupiterVersion  = '5.0.2'
 apply plugin: 'java'
 apply plugin: 'org.junit.platform.gradle.plugin'
 
-
-
 jacocoTestReport {
     reports {
-        xml.enabled = true // coveralls plugin depends on xml format report
-        html.enabled = true
+        xml.enabled = true
+        html.enabled = false
     }
 }
-
 
 dependencies {
 	compile group: 'org.eclipse.jetty', name: 'jetty-server', version: '9.4.6.v20170531'
@@ -85,7 +82,7 @@ jar {
 	exclude 'META-INF/*.RSA', 'META-INF/*.SF', 'META-INF/*.DSA'
 }
 
-defaultTasks 'clean', 'build', 'test', 'jacocoTestReport'
+defaultTasks 'clean', 'build', 'test'
 
 task wrapper(type: Wrapper) {
 	description = 'Generates gradlew[.bat] scripts'
