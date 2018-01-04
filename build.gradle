@@ -85,6 +85,8 @@ jar {
 
 defaultTasks 'clean', 'build', 'test'
 
+check.dependsOn jacocoTestReport
+
 task wrapper(type: Wrapper) {
 	description = 'Generates gradlew[.bat] scripts'
 	gradleVersion = '4.3.1'
